@@ -31,9 +31,16 @@ p {
 
 section {
     display: flex;
+    flex-direction: column;
     height: 100vh;
     align-items: center;
     padding: 100px;
+    margin-top: 60px;
+}
+
+section.home {
+    flex-direction: row;
+    margin-top: 0;
 }
 
 /*button */
@@ -146,6 +153,82 @@ section {
     height: 110%;
 }
 
+/* services page */
+
+.services {
+   margin-top: 40px;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 14px;
+   text-align: center;
+}
+.services .service {
+    padding: 30px;
+}
+
+.services .service:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+}
+
+.services .service .icon img {
+    max-width: 100px;
+} 
+.services .service h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 10px;
+    color: #1b206e;
+}
+
+/* work page */
+
+.portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.portfolio .item {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 5px;
+}
+
+.portfolio .item img {
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio .item .action {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all linear .8s;
+}
+.portfolio .item:hover .action {
+    opacity: 1;
+}
+
+.portfolio .item .action a {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #fff;
+    padding: 5px 15px;
+}
+
+/*media quiries*/
+
 @media (max-width:1068px) {
     .home-img{
         display: none;
@@ -163,5 +246,15 @@ section {
 
     .navigation ul li a {
         font-size: 1.7rem;
+    }
+
+    .services {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width:768px) {
+    .services {
+    grid-template-columns: 1fr;
     }
 }
